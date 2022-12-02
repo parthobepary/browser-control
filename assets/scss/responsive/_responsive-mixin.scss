@@ -1,0 +1,69 @@
+/* $breakpoints: (
+  sm: (
+    min: 576px,
+    max: 575.98px,
+  ),
+  md: (
+    min: 768px,
+    max: 767.98px,
+  ),
+  lg: (
+    min: 992px,
+    max: 991.98px,
+  ),
+  xl: (
+    min: 1200px,
+    max: 1199.98px,
+  ),
+);
+@mixin breakpoint($breakpoint, $direction: min) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-values: map-get($breakpoints, $breakpoint);
+    $breakpoint-min: map-get($breakpoint-values, min);
+    $breakpoint-max: map-get($breakpoint-values, max);
+
+    @if $direction == sm {
+      @media (min-width: $breakpoint-min) {
+        @content;
+      }
+    } @else {
+      @media (max-width: $breakpoint-max) {
+        @content;
+      }
+    }
+  } @else {
+    @if $direction == md {
+      @media (min-width: $breakpoint) {
+        @content;
+      }
+    } @else {
+      @media (max-width: $breakpoint) {
+        @content;
+      }
+    }
+  }
+}
+ */
+
+ @mixin breakpoint($point) {
+  @if($point == mobile){
+    @media screen and(min-width:320px) {
+      @content;
+    }
+  }
+  @else if($point == laptop){
+    @media screen and(min-width:768px) {
+      @content;
+    }
+  }
+  @else if($point == desktop){
+    @media screen and(min-width:1224px) {
+      @content;
+    }
+  }
+  @else if($point == largescreen){
+    @media screen and(min-width:1824px) {
+      @content;
+    }
+  }
+ }

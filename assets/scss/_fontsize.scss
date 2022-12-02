@@ -1,0 +1,47 @@
+@import './colorvariable';
+@import './responsive//responsive-mixin';
+
+@mixin textcolor($value) {
+  @if ($value == h1) {
+    color: white;
+  } @else if($value == h2) {
+    color: aquamarine;
+  }
+}
+
+h1 {
+  background-color: $h1-bg-color;
+//   @include textcolor(h1);
+  @include breakpoint(mobile) {
+    color: hotpink;
+    font-size: 10px;
+  }
+  @include breakpoint(laptop) {
+    color: rgb(73, 54, 5);
+    font-size: 20px;
+  }
+  @include breakpoint(desktop) {
+    color: blue;
+    font-size: 30px;
+  }
+  @include breakpoint(largescreen) {
+    color: rgb(228, 186, 1);
+    font-size: 40px;
+  }
+}
+h2 {
+  background-color: $h2-bg-color;
+  @include textcolor(h2);
+}
+h3 {
+  background-color: $h3-bg-color;
+}
+h4 {
+  background-color: $h4-bg-color;
+}
+h5 {
+  background-color: $h5-bg-color;
+}
+p {
+  background-color: $p-bg-color;
+}

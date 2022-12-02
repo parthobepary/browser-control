@@ -1,16 +1,19 @@
 <template>
   <v-app>
+    <NavBar></NavBar>
     <nuxt></nuxt>
   </v-app>
 </template>
 
 <script>
+import NavBar from '../components/NavBar.vue';
+
 export default {
-  name: 'DefaultLayout',
+  name: "DefaultLayout",
   data() {
-    return {
-    }
+    return {};
   },
+  components: { NavBar }
 }
 </script>
 <style lang="scss">
